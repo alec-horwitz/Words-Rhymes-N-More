@@ -15,6 +15,7 @@ ActiveRecord::Schema.define(version: 20180913143429) do
   create_table "queries", force: :cascade do |t|
     t.string "word_list"
     t.string "action"
+    t.string "result"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

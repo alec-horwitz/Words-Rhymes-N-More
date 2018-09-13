@@ -13,8 +13,8 @@ class Api::V1::QueriesController < ApplicationController
 
   def create
     # @query = Query.create(query_params)
-    @query = Query.create(word_list: params[:word_list], action: "rhyme")
-    render json: @query, status: 200
+    @query = Query.create(word_list: params[:word_list], action: "rhyme", result: params[:word_list])
+    render json: @query.result, status: 200
   end
 
   private
