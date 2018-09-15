@@ -102,6 +102,8 @@ You MUST follow these steps in order, and DO NOT skip any steps:
       Using web-console 3.7.0
       Bundle complete! 19 Gemfile dependencies, 78 gems now installed.
       Use \`bundle info [gemname]\` to see where a bundled gem is installed.
+      
+  All system dependencies can be found in the Gemfile in the same directory as this readme.
 
 * Database migrations:
   * You must start and initialization the database by running the following command in terminal:
@@ -114,6 +116,8 @@ You MUST follow these steps in order, and DO NOT skip any steps:
       -- create_table(:queries)
        -> 0.0018s
       == 20180913143429 CreateQueries: migrated (0.0020s) ===========================
+      
+ Starting from the directory that this readme resides in, you can find the migration file (which determines the structure of the database) at "db/migrate/20180913143429_create_queries.rb".
 
 * Run the test suite:
   * Now, you can run the test suite with the following command in terminal:
@@ -127,7 +131,7 @@ You MUST follow these steps in order, and DO NOT skip any steps:
       Finished in 1.13 seconds (files took 7.98 seconds to load)
       5 examples, 0 failures
       
-  Starting from the directory that this readme resides in, you can find the test file at spec/features/queries_controller_spec.rb
+  Starting from the directory that this readme resides in, you can find the test file (which determines the tests that are run) at spec/features/queries_controller_spec.rb
 
 * Start the api locally:
   * You can start the sever locally by entering the following command in terminal:
@@ -202,3 +206,9 @@ This end point has different result depending on what's in the stringified array
  A sentence that rhymes with "I love code" will be returned. That sentence might look like this:
 
            "sky glove rowed"
+           
+           
+Starting from the directory that this readme resides in, You can find the queries_controller.rb (which handles all of these api requests) at "app/controllers/concerns/api/v1/queries_controller.rb"
+
+and you can find routes.rb (which determins what api requests can be made) at "config/routes.rb".
+
