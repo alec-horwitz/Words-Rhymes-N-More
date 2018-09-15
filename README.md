@@ -120,12 +120,14 @@ You MUST follow these steps in order, and DO NOT skip any steps:
 
         rspec
 
-  You will see the following output in your terminal:
+  This test suite checks that all of the end points are working correctly. If all tests pass, you will see the following output in your terminal:
 
       .....
 
       Finished in 1.13 seconds (files took 7.98 seconds to load)
       5 examples, 0 failures
+      
+  Starting from the directory that this readme resides in, you can find the test file at spec/features/queries_controller_spec.rb
 
 * Start the api locally:
   * You can start the sever locally by entering the following command in terminal:
