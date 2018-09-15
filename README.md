@@ -8,7 +8,7 @@ SETUP
 
 The following instructions are necessary to get the application up and running.
 Please note that these instructions assume that you already have Ruby version 2.3.3 as well as Ruby's package manager "bundler" installed correctly before hand.
-You MUST follow these steps in order and DO NOT skip any steps:
+You MUST follow these steps in order, and DO NOT skip any steps:
 
 * Fork this repository and clone it to your computer
 
@@ -16,11 +16,11 @@ You MUST follow these steps in order and DO NOT skip any steps:
   * In terminal make sure you use the cd command to navigate to the same directory this readme resides in.
 
 * Install all dependencies:
-  * Assuming you set up ruby and bundler correctly, you can ran the following command in terminal:
+  * Assuming you set up ruby and bundler correctly, you can run the following command in terminal:
 
         bundle install
 
-  If everything is set up correctly you will see something that looks like the following output in your terminal:
+  You should see the following output in your terminal:
 
       Using rake 12.3.1
       Using concurrent-ruby 1.0.5
@@ -108,7 +108,7 @@ You MUST follow these steps in order and DO NOT skip any steps:
 
           rails db:migrate
 
-  If everything is set up correctly you will see something that looks like the following output in your terminal:
+  You should see the following output in your terminal:
 
       == 20180913143429 CreateQueries: migrating ====================================
       -- create_table(:queries)
@@ -116,11 +116,11 @@ You MUST follow these steps in order and DO NOT skip any steps:
       == 20180913143429 CreateQueries: migrated (0.0020s) ===========================
 
 * Run the test suite:
-  * Assuming you set up ruby and bundler correctly and you ran the bundle install command correctly, you can run the test suit with the following command in terminal:
+  * Now, you can run the test suite with the following command in terminal:
 
         rspec
 
-  If everything is set up correctly you will see something that looks like the following output in your terminal:
+  You will see the following output in your terminal:
 
       .....
 
@@ -128,10 +128,10 @@ You MUST follow these steps in order and DO NOT skip any steps:
       5 examples, 0 failures
 
 * Start the api locally:
-  * Assuming you set up ruby and bundler correctly and you ran the bundle install command correctly, you can start the sever locally by entering the following command in terminal:
+  * You can start the sever locally by entering the following command in terminal:
   rails s
 
-  If everything is set up correctly you will see something that looks like the following output in your terminal:
+  The following output will appear in your terminal:
 
         => Booting Puma
         => Rails 5.1.6 application starting in development
@@ -147,9 +147,9 @@ You MUST follow these steps in order and DO NOT skip any steps:
 Usage
 ---------------------
 
-Now that the api is set up correctly you can make the following api requests:
+Now you can make the following api requests:
 
-* Making a get request to "http://localhost:3000/api/v1/queries" will give you a hash of all queries made to the api in JSON format (note that get requests do not count as queries). If everything is working correctly and there has been no queries made to the databse your output JSON should look like this:
+* Making a get request to "http://localhost:3000/api/v1/queries" will give you a hash of all queries made to the api in JSON format (note that get requests do not count as queries). If there has been no queries made to the database your output JSON should look like this:
 
           []
 
@@ -167,24 +167,24 @@ Now that the api is set up correctly you can make the following api requests:
         }
 
 
-* Making a post request to "http://localhost:3000/api/v1/queries" with the body containing the key value pair like so:
+* You can make a post request to "http://localhost:3000/api/v1/queries" with the body containing the key value pair as follows:
 
           word_list: your_stringified_array
 
-Has different result depending on what's in the stringified array you pass it:
- * If you pass a single word like cake in the following format:
+This end point has different result depending on what's in the stringified array:
+ * You can use a single word like "cake" in the following format:
 
            word_list: "[cake]"
 
- A list of words that rhyme with cake will be returned in a stringified array and should look like this:
+ A list of words that rhyme with "cake" will be returned in a stringified array and would look like this:
 
          "[ache, ake, awake, bake, blake, brake, break, dake, drake, fake, flake, forsake, haik, hake, jacque, jake, lake, make, mistake, naik, opaque, paik, pake, partake, plake, quake, rake, remake, retake, sake, schake, schlake, schnake, schwake, shaik, shaikh, shake, shrake, snake, spake, stake, steak, take, wake, yake]"
 
- * If you pass a list of words like apple, cake, and popcorn in the following format:
+ * If you use a list of words like "apple", "cake", and "popcorn" in the following format:
 
          word_list: "[apple, cake, popcorn]"
 
- A single word will be randomly selected and returned in a stringified array and (assuming popcorn was the randomly selected word) should look like this:
+ A single word will be randomly selected and returned in a stringified array and (assuming "popcorn" was the randomly selected word) it would look like this:
 
            "[popcorn]"
 
@@ -193,10 +193,10 @@ Has different result depending on what's in the stringified array you pass it:
 
            sentence: your_sentence_string
 
- A sentence is returned as a string that rhymes with the sentence supplied to the body. For example if your post request's body contains the following key value pair in the following format:
+ A sentence will be returned as a string that rhymes with the sentence that was supplied. For example, if the body contains the following:
 
            sentence: "I love Code"
 
  A sentence that rhymes with "I love code" will be returned. That sentence might look like this:
 
-           "bi labove owed"
+           "sky glove rowed"
