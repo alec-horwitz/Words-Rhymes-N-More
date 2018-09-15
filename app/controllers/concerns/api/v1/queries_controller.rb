@@ -1,19 +1,22 @@
 class Api::V1::QueriesController < ApplicationController
   skip_before_action :verify_authenticity_token
-  before_action :set_query, only: :show
-  # before_action :query_params, only: :create
+
   def index
+    # returns all query objects stored in the database in JSON format
     queries = Query.all
     render json: queries, status: 200
   end
 
   def show
-    render json: @query, status: 200
+    # returns a query object in JSON format that has an id that matches params[:id]
+    render json: Query.find(params[:id]), status: 200
   end
 
   def create
-    # .to_phrase.flat_rhymes
-    # @query = Query.create(query_params)
+    # sends params[:word_list] to refine_input()
+    # then sends the result to process_input()
+    # then gets the result from that and returns it to the veiw in JSON format
+    # and records a record of the request in the database
     inputArry = refine_input(params[:word_list])
     result = process_input(inputArry)
     @query = Query.create(word_list: params[:word_list], action: "rhyme_word", result: result)
@@ -21,6 +24,9 @@ class Api::V1::QueriesController < ApplicationController
   end
 
   def create_rhyme_sentence
+    # finds a sentance that rhymes with the params[:sentence] sentence
+    # returns the new sentence to the veiw as a string
+    # and records a record of the request in the database
     inputArry = params[:sentence].to_s.split(' ')
     arry = []
     inputArry.each do |word|
@@ -36,11 +42,18 @@ class Api::V1::QueriesController < ApplicationController
   private
 
   def refine_input(input)
+    # strip input string of any brackets or unnessary spaces
+    # and the split it for any commas found
+    # returns an arry with the result
     refinedInput = input.to_s.gsub('[', '').to_s.gsub(']', '').to_s.gsub(' ', '')
     result = refinedInput.split(",")
   end
 
   def process_input(inputArry)
+    # if inputArray is more then one element
+    # return a stringified array that contains only one random element from the input array
+    # else if inputArray is only one element
+    # return an stringified array of words that rhyme with that element
     if inputArry.length > 1
       n = rand(0...inputArry.length)
       result = "["+inputArry[n]+"]"
@@ -49,12 +62,4 @@ class Api::V1::QueriesController < ApplicationController
     end
   end
 
-
-  # def query_params
-  #   params.permit(:word_list)
-  # end
-
-  def set_query
-    @query = Query.find(params[:id])
-  end
 end
