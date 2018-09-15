@@ -16,6 +16,7 @@ ActiveRecord::Schema.define(version: 20180913143429) do
     t.string "word_list"
     t.string "action"
     t.string "result"
+    t.string "repetitions"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

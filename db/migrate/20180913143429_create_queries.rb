@@ -4,6 +4,7 @@ class CreateQueries < ActiveRecord::Migration[5.1]
       t.string :word_list
       t.string :action
       t.string :result
+      t.string :repetitions
 
       t.timestamps
     end
