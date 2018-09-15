@@ -208,7 +208,7 @@ This end point has different result depending on what's in the stringified array
            "sky glove rowed"
            
            
-Starting from the directory that this readme resides in, You can find the queries_controller.rb (which handles all of these api requests) at "app/controllers/concerns/api/v1/queries_controller.rb"
+Starting from the directory that this readme resides in, you can find the queries_controller.rb (which handles all of these api requests) at "app/controllers/concerns/api/v1/queries_controller.rb".
 
-and you can find routes.rb (which determins what api requests can be made) at "config/routes.rb".
+Also starting from the directory that this readme resides in, you can find routes.rb (which determins what api requests can be made) at "config/routes.rb".
 
