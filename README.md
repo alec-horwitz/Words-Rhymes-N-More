@@ -17,7 +17,8 @@ You MUST follow these steps in order and DO NOT skip any steps:
 
 * Install all dependencies:
   * Assuming you set up ruby and bundler correctly, you can ran the following command in terminal:
-  bundle install
+
+        bundle install
 
   If everything is set up correctly you will see something that looks like the following output in your terminal:
 
@@ -104,7 +105,8 @@ You MUST follow these steps in order and DO NOT skip any steps:
 
 * Database migrations:
   * You must start and initialization the database by running the following command in terminal:
-  rails db:migrate
+
+          rails db:migrate
 
   If everything is set up correctly you will see something that looks like the following output in your terminal:
 
@@ -115,7 +117,8 @@ You MUST follow these steps in order and DO NOT skip any steps:
 
 * Run the test suite:
   * Assuming you set up ruby and bundler correctly and you ran the bundle install command correctly, you can run the test suit with the following command in terminal:
-  rspec
+
+        rspec
 
   If everything is set up correctly you will see something that looks like the following output in your terminal:
 
@@ -147,6 +150,7 @@ Usage
 Now that the api is set up correctly you can make the following api requests:
 
 * Making a get request to "http://localhost:3000/api/v1/queries" will give you a hash of all queries made to the api in JSON format (note that get requests do not count as queries). If everything is working correctly and there has been no queries made to the databse your output JSON should look like this:
+
           []
 
 
@@ -164,21 +168,35 @@ Now that the api is set up correctly you can make the following api requests:
 
 
 * Making a post request to "http://localhost:3000/api/v1/queries" with the body containing the key value pair like so:
+
           word_list: your_stringified_array
+
 Has different result depending on what's in the stringified array you pass it:
  * If you pass a single word like cake in the following format:
+
            word_list: "[cake]"
+
  A list of words that rhyme with cake will be returned in a stringified array and should look like this:
+
          "[ache, ake, awake, bake, blake, brake, break, dake, drake, fake, flake, forsake, haik, hake, jacque, jake, lake, make, mistake, naik, opaque, paik, pake, partake, plake, quake, rake, remake, retake, sake, schake, schlake, schnake, schwake, shaik, shaikh, shake, shrake, snake, spake, stake, steak, take, wake, yake]"
+
  * If you pass a list of words like apple, cake, and popcorn in the following format:
- word_list: "[apple, cake, popcorn]"
+
+         word_list: "[apple, cake, popcorn]"
+
  A single word will be randomly selected and returned in a stringified array and (assuming popcorn was the randomly selected word) should look like this:
+
            "[popcorn]"
 
 
  * Making a post request to "http://localhost:3000/api/v1/queries/sentence" with the body containing the key value pair like so:
+
            sentence: your_sentence_string
+
  A sentence is returned as a string that rhymes with the sentence supplied to the body. For example if your post request's body contains the following key value pair in the following format:
+
            sentence: "I love Code"
+
  A sentence that rhymes with "I love code" will be returned. That sentence might look like this:
+
            "bi labove owed"
